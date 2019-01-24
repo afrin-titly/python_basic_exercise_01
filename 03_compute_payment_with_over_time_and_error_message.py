@@ -21,9 +21,20 @@ Error, please enter numeric input
 
 
 # take hours and rate as input
-hours = int(input('Enter Hours: '))
-rate = float(input('Enter Rate:'))
-pay = 0
 
 
-print('Pay: {:.2f}'.format(pay))
+
+try:
+    pay = 0
+    hours = int(input('Enter Hours: '))
+    rate = float(input('Enter Rate:'))
+    if hours <= 40:
+        pay = hours * rate
+    else:
+        over_time = hours-40
+        pay = (40 * rate) + (over_time * rate*1.5)
+
+    print('Pay: {:.2f}'.format(pay))
+
+except ValueError:
+    print("Error, please enter numeric input")

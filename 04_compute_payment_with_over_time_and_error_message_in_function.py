@@ -20,14 +20,20 @@ Error, please enter numeric input
 def computepay(hours, rate):
     pay = 0
     # your code here
-
+    if hours <= 40:
+        pay = hours * rate
+    else:
+        over_time = hours-40
+        pay = (40 * rate) + (over_time * rate*1.5)
     return pay
 
 
 # take hours and rate as input
-hours = int(input('Enter Hours: '))
-rate = float(input('Enter Rate:'))
-pay = computepay(hours, rate)
-
-if pay:
-    print('Pay: {:.2f}'.format())
+try:
+    hours = int(input('Enter Hours: '))
+    rate = float(input('Enter Rate:'))
+    pay = computepay(hours, rate)
+    if pay:
+        print('Pay: {:.2f}'.format(pay))
+except ValueError:
+    print("Error, please enter numeric input")

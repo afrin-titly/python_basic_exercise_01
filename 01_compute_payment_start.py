@@ -14,6 +14,7 @@ rate = float(input('Enter Rate:'))
 pay = 0
 
 # your code here
+pay = hours * rate
 
 
 print('Pay: {:.2f}'.format(pay))
